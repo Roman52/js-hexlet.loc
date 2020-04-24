@@ -342,7 +342,8 @@ addDigits(38); // 2
 addDigits(1259); // 8
  */
 
-const sunOfNum = (num) => {
+const addDigits = (num) => {
+
   const str = String(num);
   let res = 0;
 
@@ -350,16 +351,11 @@ const sunOfNum = (num) => {
     res += Number(str[i]);
   }
 
-  return res;
-};
-
-
-const addDigits = (num) => {
-  if (sunOfNum(num) >= 10) {
-    return addDigits(sunOfNum(num));
+  if (res >= 10) {
+    return addDigits(res);
   }
 
-  return sunOfNum(num);
-};
+  return res;
+}
 
-console.log(addDigits(999999999999));
+console.log(addDigits(598997686567));
