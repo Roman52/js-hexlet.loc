@@ -221,4 +221,149 @@ const sumOfSquares = (num1, num2) => square(num1) + square(num2);
 const squareSumOfSquares = (num1, num2) => square(sumOfSquares(num1, num2));
  */
 
+// lesson 17 Замыкания
+/*
+Функции lessThan, greaterThan и isEqual в модуле comparers сравнивают две строки и возвращают true/false.
 
+Сравнение идет по количеству заглавных символов в строке (больше заглавных — больше строка).
+
+Специальные символы (например, пробел) не имеют заглавных эквивалентов и в данном задании считаются заглавными.
+Примеры:
+
+greaterThan('AD', 'ad sd'); // true, сравнение на > (больше)
+greaterThan('AD', '   Ad sd'); // false, сравнение на > (больше)
+lessThan('ghe df', 'dfwe r D'); // true, сравнение на < (меньше)
+isEqual('liSp', 'lisP'); // true
+
+Допишите необходимые части функций bigLettersCount и compare для того, чтобы заработали функции lessThan, greaterThan и isEqual.
+
+Функция compare, принимающая две строки first и second, работает по следующему алгоритму:
+
+Если в первой строке больше заглавных символов, то возвращается 1.
+Если во второй строке больше заглавных символов, то возвращается -1.
+Иначе возвращается 0.
+ */
+
+/*
+const length = (str) => str.length;
+const toUpperCase = (str) => str.toUpperCase();
+
+const bigLettersCount = (str) => {
+  let i = 0;
+  let bigLettersCounter = 0;
+
+  while (i < length(str)) {
+    if (str[i] === toUpperCase(str[i])) {
+      bigLettersCounter++;
+    }
+    i++;
+  }
+
+  return bigLettersCounter;
+};
+
+const compare = (first, second) => {
+  const firstCount = bigLettersCount(first);
+  const secondCount = bigLettersCount(second);
+
+  if (firstCount > secondCount) return 1;
+  if (firstCount < secondCount) return -1;
+
+  return 0;
+};
+
+export const greaterThan = (first, second) => (
+    compare(first, second) === 1);
+
+export const lessThan = (first, second) => (
+    compare(first, second) === -1);
+
+export const isEqual = (first, second) => (
+    compare(first, second) === 0);
+ */
+
+// lesson 18 Типизация
+/*
+Реализуйте и экспортируйте по умолчанию функцию addDigits, которая работает следующим образом:
+
+Дано неотрицательное целое число num. Складывать все входящие в него цифры до тех пор, пока не останется одна цифра.
+
+Для числа 38 процесс будет выглядеть так:
+
+3 + 8 = 11
+1 + 1 = 2
+Результат: 2
+ */
+/*
+const addDigits = (str) => {
+  if (str < 10) {
+    return str;
+  }
+
+  let res = 0;
+  str = String(str);
+
+  for (let i = 0; i < str.length; i += 1) {
+    res += Number(str[i]);
+  }
+
+  res = String(res);
+
+  if (res.length > 1) {
+    return addDigits(res);
+  }
+
+  return Number(res);
+};
+
+console.log(addDigits(38));
+ */
+
+// Teacher's solution
+/*
+const sum = (num) => {
+    let result = 0;
+    const str = String(num);
+    for (let i = 0; i < str.length; i += 1) {
+        result = result + Number(str[i]);
+    }
+
+    return result;
+}
+
+const addDigits = (num) => {
+    let res = num;
+    while (res >= 10) {
+        res = sum(res);
+    }
+
+    return res;
+}
+
+console.log(addDigits(38));
+ */
+
+// lesson 19
+/*
+Реализуйте и экспортируйте по умолчанию функцию, которая делает заглавной первую букву каждого слова в предложении.
+ */
+/*
+const firstLetterToUpperCase = (str) => {
+  str = String(str);
+  let res = '';
+
+  for (let i = 0; i < str.length; i += 1) {
+    if (i === 0 || str[i - 1] === ' ') {
+      res += str[i].toUpperCase();
+    } else {
+      res += str[i];
+    }
+  }
+
+  return res;
+};
+
+console.log(firstLetterToUpperCase('many different words inside sentence'));
+ */
+
+// console.log(0.3 - 0.2);
