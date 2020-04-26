@@ -342,6 +342,7 @@ addDigits(38); // 2
 addDigits(1259); // 8
  */
 
+/*
 const addDigits = (num) => {
 
   const str = String(num);
@@ -358,4 +359,43 @@ const addDigits = (num) => {
   return res;
 }
 
-console.log(addDigits(598997686567));
+ */
+
+// teacher's solution
+
+/*
+Размышления:
+Разберем ситуацию когда вызываем функцию addDigits(38) с аргументом 38.
+
+Первая итерация цикла while - 38 >= 10 - да, делаем
+result = sumDigits(result);
+То есть result = 11; А дальше цикл продолжается (перемещается в условие цикла опять), 11 >= 10 да -
+result = 2; А дальше цикл опять продолжается(перемещается в условие). 2 >= 10 - нет. Только счас цикл закончился.
+То есть если исполнилось условие цикла, то как минимум еще одна проверка(итерация) должна быть - этого я недопонял сначала.
+ */
+/*
+const sumOfDigits = (num) => {
+  const str = String(num);
+  let res = 0;
+
+  for (let i = 0; i < str.length; i += 1) {
+    res += Number(str[i]);
+  }
+
+  return res;
+}
+
+const addDigits = (num) => {
+  let result = num;
+
+  while (result >= 10) {
+    result = sumOfDigits(result);
+  }
+
+  return result;
+}
+
+console.log(addDigits(38));
+ */
+
+

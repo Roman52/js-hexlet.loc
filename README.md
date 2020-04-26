@@ -1,2 +1,2 @@
 # Learn JS
-JS Hexlet courses - learn js 
+JS Hexlet courses - learn js.
